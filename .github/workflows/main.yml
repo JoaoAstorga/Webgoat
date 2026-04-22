@@ -27,7 +27,7 @@ jobs:
           ARTIFACT_NAME="$ARTIFACT_NAME.jar"
           echo $ARTIFACT_NAME > ${{ env.ARTIFACT_NAME_FILE }}
       - name: Empacotamento dos arquivos
-        uses: thedoctor0/zip-release@master
+        uses: thedoctor0/zip-release@a24011d8d445e4da5935a7e73c1f98e22a439464 # master
         with:
           filename: 'veracode.zip'
           path: .
@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Devici CodeGenius
-        uses: Devici-ThreatModel/code-genius-action@latest
+        uses: Devici-ThreatModel/code-genius-action@4155e6932548b966e7aa624c1910e5ae8073083b # latest
         env:
             CG_CLIENT_ID: ${{ secrets.CG_CLIENT_ID }}
             CG_CLIENT_SECRET: ${{ secrets.CG_CLIENT_SECRET }}
@@ -66,7 +66,7 @@ jobs:
         with:
           name: pacoteVeracode
       - name: UploadAndScan
-        uses: veracode/veracode-uploadandscan-action@master # Faz a analise da Veracode
+        uses: veracode/veracode-uploadandscan-action@ddca86b1d1d45639d1c414003f3495f71851cfe2 # master # Faz a analise da Veracode
         env:
           VeracodeID: ${{ secrets.VeracodeID }} # Lembrar de criar as credenciais no Secrets
           VeracodeKey: ${{ secrets.VeracodeKey }}
